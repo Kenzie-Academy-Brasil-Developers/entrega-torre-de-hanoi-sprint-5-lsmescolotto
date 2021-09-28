@@ -1,3 +1,14 @@
+body {
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+header h1 {
+    font-family: 'Macondo', cursive;
+    font-size: 70px;
+    text-align: center;
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -21,19 +32,21 @@ main{
     margin-bottom: 15px;
 }
 
-#tower1{
+#tower1, #tower2, #tower3{
     display: flex;
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: 1px solid red;
     width: 250px;
     height: 250px;
 }
 
-#tower2{
+/* #tower2{
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
     border: 1px solid red;
     width: 250px;
     height: 250px;
@@ -42,7 +55,17 @@ main{
 #tower3{
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
     border: 1px solid red;
     width: 250px;
     height: 250px;
+} */
+
+.stick1, .stick2, .stick3 {
+    background-color: black;
+    width: 7px;
+    /* height: 120px; */
+    position: absolute;
+    z-index: -1;
 }
