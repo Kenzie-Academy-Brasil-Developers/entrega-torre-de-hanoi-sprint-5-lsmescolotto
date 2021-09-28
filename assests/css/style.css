@@ -1,0 +1,51 @@
+body {
+    margin: 50px 100px;
+    font-family: sans-serif;
+    
+}
+
+h1 {
+    font-family: 'Macondo', cursive;
+    font-size: 70px;
+    text-align: center;
+}
+
+#start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.varetasSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 400px;
+    width: 800px;
+    position: absolute;
+    z-index: -1;
+}
+
+.varetas {
+    background-color: black;
+    width: 15px;
+    height: 300px;
+}
+
+.discosSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 400px;
+    width: 800px;
+}
+.discos {
+    background-color: yellow;
+    height: 20px;
+    width: 100px;
+    border: 2px solid darkgoldenrod;
+    border-radius: 5px;
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assests/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/assests/css/style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Torre de Hanoi</h1>
+    </header>
+
+    <main>
+        <section id="start">
+            <p>Para começar, digite um número de 3 a 5 para determinar a quantidade de discos com a qual você vai jogar. Depois disso, é só clicar no botão iniciar.</p>
+            <input type="number" name="inputDiscos" id="inputDiscos">
+            <button id="botaoIniciar">Iniciar</button>
+        </section>
+
+        <section class="varetasSection">
+            <div class="varetas"></div>
+            <div class="varetas"></div>
+            <div class="varetas"></div>
+        </section>
+
+        <section class="discosSection">
+            <div class="discos">1</div>
+            <div class="discos">2</div>
+            <div class="discos">3</div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
