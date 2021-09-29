@@ -98,12 +98,18 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
     .victoryMsg {
         width: 65%;
     }
-
 }

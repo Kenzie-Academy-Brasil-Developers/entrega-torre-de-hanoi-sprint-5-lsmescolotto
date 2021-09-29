@@ -6,6 +6,9 @@ const tower3 = document.createElement('div')
 const start = document.getElementById('start')
 const exit = document.createElement('button')
 const victoryMsg = document.createElement('div')
+const current = document.getElementById('current')
+const counting = document.createElement('h3')
+
 
 start.addEventListener('click', difficulty)
 exit.addEventListener('click', exitVictoryMsg)
@@ -68,12 +71,17 @@ function createSticks() {
     tower3.appendChild(stick3);
 }
 
-
-
 function addEventToTower() {
     tower1.addEventListener('click', selectPiece)
     tower2.addEventListener('click', selectPiece)
     tower3.addEventListener('click', selectPiece)
+}
+
+function countPlays(){
+    counting.innerText = `Moves: ${moves}`
+    current.appendChild(counting)
+    console.log(`Moves: ${moves}`)
+    return counting
 }
 
 function selectPiece(evt) {
@@ -101,16 +109,15 @@ function putPiece(evt) {
             nextTower.appendChild(piece)
             holding = 0
         }
-    moves += 1
+    moves++
     }
     victory(size)
+    countPlays()
 }
 
  function victory() {
     if (tower2.childElementCount-1 == size || tower3.childElementCount-1 == size){
-        
         const victoryParagraph = document.createElement('p')
-        
         const resetButton = document.createElement('button')
 
         victoryMsg.classList.add('victoryMsg')
@@ -135,4 +142,5 @@ function exitVictoryMsg() {
 function removeInterface() {
     const dif = document.getElementById('dif')
     dif.style = 'display: none;'
-} 
+}
+
