@@ -1,12 +1,12 @@
 body {
     margin: 0 auto;
     font-family: sans-serif;
-    width: 900px;
+    background-color: #f5f5f5;
 }
 
 header h1 {
     font-family: 'Macondo', cursive;
-    font-size: 70px;
+    font-size: 36px;
     text-align: center;
 }
 
@@ -29,18 +29,41 @@ main{
     width: 50px;
 }
 
-#dif button {
+button {
     margin-bottom: 15px;
 }
 
+button {
+    margin-bottom: 15px;
+    padding: 5px;
+    background: linear-gradient(90deg, purple 0%, violet 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 20px 40px;
+}
+
+button:hover {
+    animation: gradient 2.5s infinite 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards;
+}
+
 #current {
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
     display: none;
     align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
+#current h3 {
+    margin-right: 10px;
 }
 
 #towers {
     display: flex;
+    flex-direction: column;
 }
 
 #tower1, #tower2, #tower3{
@@ -48,8 +71,8 @@ main{
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 2px solid black;
-    margin: 0 5px;
+    border-bottom: 7px solid black;
+    margin: 0 15px 15px 15px;
     width: 250px;
     height: 250px;
 }
@@ -98,12 +121,38 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 800px) {
+    header h1 {
+        font-size: 72px;
+    }
+    
+    #towers {
+        flex-direction: row;
+    }
+
     .victoryMsg {
         width: 65%;
     }
+}
 
+
+
+@keyframes gradient {
+    0% { background: linear-gradient(90deg, purple 0%, violet 100%) }
+    10% { background: linear-gradient(90deg, violet 0%, red 100%) }
+    20% { background: linear-gradient(90deg, red 0%, orange 100%) }
+    30% { background: linear-gradient(90deg, orange 0%, yellow 100%) }
+    37% { background: linear-gradient(90deg, yellow 0%, green 100%) }
+    44% { background: linear-gradient(90deg, green 0%, blue 100%) }
+    50% { background: linear-gradient(90deg, blue 0%, purple 100%) }
+    60% { background: linear-gradient(90deg, purple 0%, violet 100%) }
+    70% { background: linear-gradient(90deg, violet 0%, red 100%) }
+    80% { background: linear-gradient(90deg, red 0%, orange 100%) }
+    87% { background: linear-gradient(90deg, orange 0%, yellow 100%) }
+    94% { background: linear-gradient(90deg, yellow 0%, green 100%) }
+    100% { background: linear-gradient(90deg, green 0%, blue 100%) }
 }
