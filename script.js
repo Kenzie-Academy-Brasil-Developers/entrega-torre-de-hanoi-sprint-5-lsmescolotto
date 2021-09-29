@@ -8,10 +8,14 @@ const exit = document.createElement('button')
 const victoryMsg = document.createElement('div')
 const current = document.getElementById('current')
 const counting = document.createElement('h3')
-
+const gameDiv = document.createElement('div')
+const dif = document.getElementById('dif')
+const victoryParagraph = document.createElement('p')
+const resetButton = document.createElement('button')
 
 start.addEventListener('click', difficulty)
 exit.addEventListener('click', exitVictoryMsg)
+resetButton.addEventListener('click', reset)
 
 let size = numberPieces.value
 let holding = 0
@@ -19,24 +23,27 @@ let moves = 0
 
 function difficulty() {
     size = numberPieces.value
-    createSticks(size)
     createTower(size)
 }
 
 function createTower() {
-    
-    const current = document.getElementById('current')
-    const gameDiv = document.createElement('div')
+    createSticks(size)
+
     current.style = 'display: flex;'
     gameDiv.id = 'towers'
+
     page.appendChild(gameDiv)
 
     tower1.id = 'tower1'
     tower2.id = 'tower2'
     tower3.id = 'tower3'
+
+    towerStyle(size)
+
     gameDiv.appendChild(tower1)
     gameDiv.appendChild(tower2)
     gameDiv.appendChild(tower3)
+
 
     const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'violet']
 
@@ -121,6 +128,7 @@ function putPiece(evt) {
         const resetButton = document.createElement('button')
 
         victoryMsg.classList.add('victoryMsg')
+        victoryMsg.id = 'victoryDiv'
         exit.classList.add('exit')
         resetButton.classList.add('resetButton')
 
@@ -137,10 +145,29 @@ function putPiece(evt) {
 
 function exitVictoryMsg() {
     victoryMsg.style = 'display: none;'
+    tower1.removeEventListener('click', selectPiece, false)
+    tower2.removeEventListener('click', selectPiece, false)
+    tower3.removeEventListener('click', selectPiece, false)
 }
 
 function removeInterface() {
-    const dif = document.getElementById('dif')
     dif.style = 'display: none;'
 }
 
+function towerStyle(size) {
+    tower1.style = `width: ${50 + 25*(size)}px; height: ${30 + 30*(size)}px; margin-bottom: 7px solid black;`
+    tower2.style = `width: ${50 + 25*(size)}px; height: ${30 + 30*(size)}px; margin-bottom: 7px solid black;`
+    tower3.style = `width: ${50 + 25*(size)}px; height: ${30 + 30*(size)}px; margin-bottom: 7px solid black;`
+}
+
+function reset() {
+    tower1.innerHTML = ''
+    tower2.innerHTML = ''
+    tower3.innerHTML = ''
+    current.style = 'display: none;'
+    gameDiv.parentElement.removeChild(gameDiv)
+    moves = 0
+    dif.style = 'display: flex;'
+    const victoryDiv = document.getElementById('victoryDiv')
+    victoryDiv.parentElement.removeChild(victoryDiv)
+}
