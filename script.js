@@ -117,7 +117,6 @@ function putPiece(evt) {
 
  function victory() {
     if (tower2.childElementCount-1 == size || tower3.childElementCount-1 == size){
-        removeTowers()
         victoryMsg.classList.add('victoryMsg')
         victoryMsg.id = 'victoryDiv'
         exit.classList.add('exit')
@@ -136,6 +135,9 @@ function putPiece(evt) {
 
 function exitVictoryMsg() {
     victoryMsg.style = 'display: none;'
+    tower1.removeEventListener('click', selectPiece, false)
+    tower2.removeEventListener('click', selectPiece, false)
+    tower3.removeEventListener('click', selectPiece, false)
 }
 
 function removeInterface() {
@@ -148,15 +150,12 @@ function towerStyle(size) {
     tower3.style = `width: ${50 + 25*(size)}px; height: ${30 + 30*(size)}px; margin-bottom: 7px solid black;`
 }
 
-function removeTowers() {
+function reset() {
     tower1.innerHTML = ''
     tower2.innerHTML = ''
     tower3.innerHTML = ''
     current.style = 'display: none;'
     gameDiv.parentElement.removeChild(gameDiv)
-}
-
-function reset() {
     moves = 0
     dif.style = 'display: flex;'
     const victoryDiv = document.getElementById('victoryDiv')
