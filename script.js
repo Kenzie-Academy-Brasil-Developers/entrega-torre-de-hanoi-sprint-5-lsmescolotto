@@ -1,23 +1,27 @@
+const page = document.querySelector('main')
+const numberPieces = document.getElementById('difficulty')
 const tower1 = document.createElement('div')
 const tower2 = document.createElement('div')
 const tower3 = document.createElement('div')
 const start = document.getElementById('start')
-start.addEventListener('click', difficulty)
+const exit = document.createElement('button')
+const victoryMsg = document.createElement('div')
 
+start.addEventListener('click', difficulty)
+exit.addEventListener('click', exitVictoryMsg)
+
+let size = numberPieces.value
 let holding = 0
 let moves = 0
 
 function difficulty() {
-    const numberPieces = document.getElementById('difficulty')
-    const size = numberPieces.value
-    console.log(size)
+    size = numberPieces.value
     createSticks(size)
     createTower(size)
 }
 
-
-function createTower(size) {
-    const page = document.querySelector('main')
+function createTower() {
+    
     const current = document.getElementById('current')
     current.style = 'display: flex;'
     
@@ -28,7 +32,7 @@ function createTower(size) {
     page.appendChild(tower2)
     page.appendChild(tower3)
 
-    const colors = ['blue', 'green', 'yellow', 'violet', 'red', 'purple', 'gray']
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'violet']
 
     for(let i = 1; i <= size; i++) {
         let disc = document.createElement('div')
@@ -42,7 +46,7 @@ function createTower(size) {
 }
 
 
-function createSticks(size) {
+function createSticks() {
     const stick1 = document.createElement('div');
     const stick2 = document.createElement('div');
     const stick3 = document.createElement('div');
@@ -60,11 +64,7 @@ function createSticks(size) {
     tower3.appendChild(stick3);
 }
 
-function victory() {
-    if (tower2.childElementCount === 8 || tower3.childElementCount === 8){
-        console.log("that's a win!!!")
-    }
-}
+
 
 function addEventToTower() {
     tower1.addEventListener('click', selectPiece)
@@ -99,6 +99,33 @@ function putPiece(evt) {
         }
     moves += 1
     }
+    victory(size)
+}
+
+ function victory() {
+    if (tower2.childElementCount-1 == size || tower3.childElementCount-1 == size){
+        
+        const victoryParagraph = document.createElement('p')
+        
+        const resetButton = document.createElement('button')
+
+        victoryMsg.classList.add('victoryMsg')
+        exit.classList.add('exit')
+        resetButton.classList.add('resetButton')
+
+        victoryParagraph.innerText = 'Congratulations!!! You won!!!'
+        exit.innerText = 'x'
+        resetButton.innerText = 'Reset'
+        
+        victoryMsg.appendChild(exit)
+        victoryMsg.appendChild(victoryParagraph)
+        page.appendChild(victoryMsg)
+        victoryMsg.appendChild(resetButton)
+    }
+}
+
+function exitVictoryMsg() {
+    victoryMsg.style = 'display: none;'
 }
 
 function removeInterface() {
