@@ -54,36 +54,56 @@ main{
     height: 250px;
 }
 
-/* #tower2{
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid red;
-    width: 250px;
-    height: 250px;
-}
-
-#tower3{
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid red;
-    width: 250px;
-    height: 250px;
-} */
-
 .stick1, .stick2, .stick3 {
     background-color: black;
     width: 7px;
-    /* height: 120px; */
     position: absolute;
     z-index: -1;
+}
+
+.victoryMsg {
+    position: absolute;
+    z-index: 1;
+    background-color: gray;
+    height: 40%;
+    width: 80%;
+    margin-top: 100px;
+    border-radius: 50px;
+    border: solid 2px black;
+    padding: 15px;
+}
+
+.victoryMsg p {
+    font-family: 'Macondo', cursive;
+    font-size: 25px;
+    text-align: center;
+    margin: 40px 0 60px 0;
+}
+
+.victoryMsg .exit {
+    float: right;
+    border-radius: 50%;
+    padding: 3px 7px;
+}
+
+.victoryMsg .resetButton {
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 20px 40px;
 }
 
 .disc {
     display: flex;
     justify-content: center;
     align-items: center;
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    .victoryMsg {
+        width: 65%;
+    }
+
 }
