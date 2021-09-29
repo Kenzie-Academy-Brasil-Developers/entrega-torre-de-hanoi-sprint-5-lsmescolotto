@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     font-family: sans-serif;
+    width: 900px;
 }
 
 header h1 {
@@ -38,12 +39,17 @@ main{
     align-items: center;
 }
 
+#towers {
+    display: flex;
+}
+
 #tower1, #tower2, #tower3{
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid red;
+    border-bottom: 2px solid black;
+    margin: 0 5px;
     width: 250px;
     height: 250px;
 }
@@ -88,6 +94,10 @@ main{
     padding: 20px 40px;
 }
 
+.disc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 /* MEDIA QUERIES */
 
@@ -95,4 +105,5 @@ main{
     .victoryMsg {
         width: 65%;
     }
+
 }
