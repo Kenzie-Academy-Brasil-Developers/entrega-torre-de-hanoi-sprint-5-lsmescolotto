@@ -19,14 +19,17 @@ function difficulty() {
 function createTower(size) {
     const page = document.querySelector('main')
     const current = document.getElementById('current')
+    const gameDiv = document.createElement('div')
     current.style = 'display: flex;'
-    
+    gameDiv.id = 'towers'
+    page.appendChild(gameDiv)
+
     tower1.id = 'tower1'
     tower2.id = 'tower2'
     tower3.id = 'tower3'
-    page.appendChild(tower1)
-    page.appendChild(tower2)
-    page.appendChild(tower3)
+    gameDiv.appendChild(tower1)
+    gameDiv.appendChild(tower2)
+    gameDiv.appendChild(tower3)
 
     const colors = ['blue', 'green', 'yellow', 'violet', 'red', 'purple', 'gray']
 
@@ -34,6 +37,7 @@ function createTower(size) {
         let disc = document.createElement('div')
         disc.innerText = (size - i) + 1
         disc.id = `disc${i}`
+        disc.classList = 'disc'
         disc.style = `width: ${50 + 25*(size-i)}px; height: 30px; background-color: ${colors[i-1]};`
         tower1.appendChild(disc)
     }
