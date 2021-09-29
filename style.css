@@ -1,5 +1,5 @@
 body {
-    margin: 0 auto;
+    margin: 50px auto;
     font-family: sans-serif;
     background-color: #f5f5f5;
 }
@@ -31,13 +31,8 @@ main{
 
 button {
     margin-bottom: 15px;
-}
-
-button {
-    margin-bottom: 15px;
     padding: 5px;
     background: linear-gradient(90deg, purple 0%, violet 100%);
-    color: white;
     border: none;
     border-radius: 30px;
     font-size: 16px;
@@ -87,7 +82,7 @@ button:hover {
 .victoryMsg {
     position: absolute;
     z-index: 1;
-    background-color: gray;
+    background: linear-gradient( 90deg , purple, violet, red, orange, yellow, green, blue);
     height: 40%;
     width: 80%;
     margin-top: 100px;
@@ -104,13 +99,14 @@ button:hover {
 }
 
 .victoryMsg .exit {
+    background: #f5f5f5;
     float: right;
     border-radius: 50%;
     padding: 3px 7px;
 }
 
 .victoryMsg .resetButton {
-    background-color: white;
+    background: #f5f5f5;
     border: none;
     border-radius: 30px;
     font-size: 16px;
@@ -143,6 +139,7 @@ button:hover {
 
     .victoryMsg {
         width: 65%;
+        margin-top: 75px;
     }
 }
 
