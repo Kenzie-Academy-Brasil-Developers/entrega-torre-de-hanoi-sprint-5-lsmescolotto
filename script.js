@@ -7,10 +7,14 @@ const start = document.getElementById('start')
 const exit = document.createElement('button')
 const victoryMsg = document.createElement('div')
 const current = document.getElementById('current')
+const currentText = document.createElement('div')
+const piece = document.createElement('div')
 const counting = document.createElement('h3')
 const gameDiv = document.createElement('div')
 const dif = document.getElementById('dif')
 const victoryParagraph = document.createElement('p')
+const minMoves = document.createElement('h4')
+const movesToVictory = document.createElement('h4')
 const resetButton = document.createElement('button')
 
 start.addEventListener('click', difficulty)
@@ -31,6 +35,8 @@ function createTower() {
 
     current.style = 'display: flex;'
     gameDiv.id = 'towers'
+
+    creatCounter()
 
     page.appendChild(gameDiv)
 
@@ -84,18 +90,24 @@ function addEventToTower() {
     tower3.addEventListener('click', selectPiece)
 }
 
+function creatCounter() {
+    counting.innerText = `Moves: ${moves}`
+    currentText.innerText = 'Current Piece: '
+    piece.id = 'currentPiece'
+    currentText.id = 'showPiece'
+    current.appendChild(counting)
+    current.appendChild(piece)
+    piece.appendChild(currentText)
+}
+
 function countPlays(){
     counting.innerText = `Moves: ${moves}`
-    current.appendChild(counting)
-    console.log(`Moves: ${moves}`)
-    return counting
 }
 
 function selectPiece(evt) {
     if(holding !== 1 && evt.currentTarget.childElementCount > 1) {
-        const current = document.getElementById('current')
-        const taken = evt.currentTarget.lastChild
-        current.appendChild(taken)
+        const take = evt.currentTarget.lastChild
+        piece.appendChild(take)
         holding = 1
     } else {
         putPiece(evt)
@@ -104,40 +116,49 @@ function selectPiece(evt) {
 
 function putPiece(evt) {
     if(holding !== 0) {
-        const piece = document.getElementById('current').lastChild
+        const takenPiece = piece.lastChild
         const nextTower = evt.currentTarget
         if(nextTower.childElementCount > 1) {
             const lastNumber = nextTower.lastChild
-            if(piece.clientWidth < lastNumber.clientWidth) {
-                nextTower.appendChild(piece)
+            if(takenPiece.clientWidth < lastNumber.clientWidth) {
+                nextTower.appendChild(takenPiece)
                 holding = 0
+                moves++
+                countPlays()
             }
         } else {
-            nextTower.appendChild(piece)
+            nextTower.appendChild(takenPiece)
             holding = 0
+            moves++
+            countPlays()
         }
-    moves++
     }
     victory(size)
-    countPlays()
+}
+
+function msg() {
+    victoryParagraph.innerText = 'Congratulations!!! You won!!!'
+    minMoves.innerText = `Minimum Moves: ${(2 ** size) - 1}`
+    movesToVictory.innerText = `Your Moves: ${moves}`
+    victoryMsg.appendChild(victoryParagraph)
+    victoryMsg.appendChild(minMoves)
+    victoryMsg.appendChild(movesToVictory)
 }
 
  function victory() {
     if (tower2.childElementCount-1 == size || tower3.childElementCount-1 == size){
-        const victoryParagraph = document.createElement('p')
-        const resetButton = document.createElement('button')
-
         victoryMsg.classList.add('victoryMsg')
         victoryMsg.id = 'victoryDiv'
         exit.classList.add('exit')
         resetButton.classList.add('resetButton')
 
-        victoryParagraph.innerText = 'Congratulations!!! You won!!!'
         exit.innerText = 'x'
         resetButton.innerText = 'Reset'
         
         victoryMsg.appendChild(exit)
-        victoryMsg.appendChild(victoryParagraph)
+
+        msg()
+
         page.appendChild(victoryMsg)
         victoryMsg.appendChild(resetButton)
     }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="reset.css">
+    <link type="text/css" rel="stylesheet" href="style2.css">
+    <title>Torres</title>
+</head>
+<body>
+    <header>
+        <h1>Hanói Tower</h1>
+        <span><a href='index.html'>Game</a></span>
+        <span><a href='about.html'>About</a></span>
+    </header>
+
+    <main>
+        <section id='introduction'>
+            <a href='https://pt.wikipedia.org/wiki/Brama'>
+                <figure id='brahma'>
+                    <img src='./src/brahma.jpg'>
+                    <figcaption>Brahma</figcaption>
+                </figure>
+            </a>
+            <h3>Legend</h3>
+            <p>There are several legends about the Hanói tower, the most known tell us about a Hindu temple in the center of the universe, where <name>Brahma</name> built a tower with <number>64</number> golden discs and two balanced sticks by it's side.</p> 
+            <p>The legend says that <name>Brahma</name> ordered that all the discs had to be moved to the other stick, but only onde disc could be moved at time and a greater disc should never be on top of a smaller one. When it this challenge were complete the temple whould collapse and it would be the end of the world.</p>
+        </section>
+        <section id='game'>
+            <a href='https://pt.wikipedia.org/wiki/%C3%89douard_Lucas'>
+                <figure id='lucas'>
+                    <img src='./src/math.png'>
+                    <figcaption>Édouard Lucas</figcaption>
+                </figure>
+            </a>
+            <h3>Creator</h3>
+            <p>The game was invented in <number>1883</number> by the french mathmatician <name>Édouard Lucas</name>, which was inspired by the legends, it's name comes from the tower in Hanói city located in Vietnam</p>
+            <p>Also known for the <name>Lucas</name>'s numbers, sequencie and theorem.</p>
+        </section>
+        <section id='math'>
+            <a href='https://en.wikipedia.org/wiki/Geometric_progression'>
+                <figure id='tower'>
+                    <img src='./src/tower.jpeg'>
+                    <figcaption>Hanói Tower</figcaption>
+                </figure>
+            </a>
+            <h3>Math</h3>
+            <p>In order to solve the game, there are a way to calculate the minimum movements need to successfull move the tower to the other stick.</p>
+            <p>The game works in a movement of pieces, but this follow a patter, ir order to move the first, one movement is needed, but for ther second 2 movements are needed since the first disc already is in one stick, so you have to move it in order to put the second in the right place, the same thought is used to the third disc, which has to be moved four times.</p>
+            <p>Following the patter, you have tom move <number>2^n-1</number> times to complete shift the tower.</p>
+            <p>As example, take the <name>Brahma</name>'s problem, that consists of a tower with <number>64</number> discs, it would take <number>18446744073709552000</number> movements to complete the task.</p>
+        </section>
+    </main>
+</body>
+</html>
