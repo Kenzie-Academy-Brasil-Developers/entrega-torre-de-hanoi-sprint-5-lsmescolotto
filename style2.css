@@ -101,6 +101,20 @@ number {
     font-weight: bold;
 }
 
+.references {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.references h3 {
+    font-size: 18px;
+}
+
+.references a {
+    display: inline-block;
+}
+
 @media screen and (min-width: 500px) {
     section a {
         display: inline;

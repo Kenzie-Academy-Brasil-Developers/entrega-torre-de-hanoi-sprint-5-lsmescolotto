@@ -51,7 +51,7 @@ function createTower() {
     gameDiv.appendChild(tower3)
 
 
-    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'violet']
+    const colors = ['violet', 'purple', 'blue', 'green', 'yellow', 'orange', 'red']
 
     for(let i = 1; i <= size; i++) {
         let disc = document.createElement('div')
